@@ -70,6 +70,7 @@ def Inflate_L4(B):
     v_min = S[0]
     S = Sample_Inflate(S)
     S = sorted(S, key = lambda vec : vec.sq_length)
+    cLLL = 0
     while S[0] < v_min:
         v_min = S[0]
         m = len(S)
@@ -78,13 +79,14 @@ def Inflate_L4(B):
             for j in range(n):
                 B[i, j] = int(S[i].vec[j])
         B = LLL.reduction(B)
+        cLLL += 1
         S = [Vector(n) for _ in range(n)]
         for i in range(n):
             for j in range(n):
                 S[i][j] = B[i+m-n, j]
         S = Sample_Inflate(S)
         S = sorted(S, key = lambda vec : vec.sq_length)
-    return S
+    return S, cLLL
 
 
 def Sample_L4(B):
@@ -93,6 +95,7 @@ def Sample_L4(B):
     v_min = S[0]
     S = Sample_Reduce(S)
     S = sorted(S, key = lambda vec : vec.sq_length)
+    cLLL = 0
     while S[0] < v_min:
         v_min = S[0]
         m = len(S)
@@ -101,13 +104,14 @@ def Sample_L4(B):
             for j in range(n):
                 B[i, j] = int(S[i].vec[j])
         B = LLL.reduction(B)
+        cLLL += 1
         S = [Vector(n) for _ in range(n)]
         for i in range(n):
             for j in range(n):
                 S[i][j] = B[i+m-n, j]
         S = Sample_Reduce(S)
         S = sorted(S, key = lambda vec : vec.sq_length)
-    return S
+    return S, cLLL
         
 
 
