@@ -8,18 +8,16 @@
 from fpylll import IntegerMatrix, LLL, BKZ, GSO
 from time import time
 from L4 import *
+from sys import argv
 
 
 #input
-print("dimension :" , end="")
-n = input()
+n = argv[1]
 #seeds
-print("seed from " , end="")
-first = int(input())
-print(" to " , end="")
-last = int(input())
+first = argv[2]
+last = argv[3]
 #file header
-with open(str(n)+".csv", 'a') as file:
+with open("L4-"+str(n)+".csv", 'a') as file:
     file.write("dimension,seed,LLL,L4,time\n")
 
 #running L4 algorithm
