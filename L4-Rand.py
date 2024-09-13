@@ -20,7 +20,7 @@ last = int(argv[3])
 rand = int(argv[4])
 #file header
 with open("L4-Rand"+str(rand)+"-"+str(n)+".csv", 'a') as file:
-    file.write("dimension,seed,nbLLL,LLL,L4,time L4, L4-Rand"+str(rand)+",time L4-Rand"+str(rand)+"\n")
+    file.write("dimension,seed,nbLLL,LLL,L4,time L4, L4-random,time L4-random\n")
 
 #running L4 algorithm
 for seed in range(first, last+1):

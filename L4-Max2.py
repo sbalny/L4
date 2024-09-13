@@ -17,8 +17,8 @@ n = int(argv[1])
 first = int(argv[2])
 last = int(argv[3])
 #file header
-with open("L4-Max4-"+str(n)+".csv", 'a') as file:
-    file.write("dimension,seed,nbLLL,LLL,L4,time L4, L4-Max2,time L4-Max2\n")
+with open("L4-Max2-"+str(n)+".csv", 'a') as file:
+    file.write("dimension,seed,nbLLL,LLL,L4,time L4, L4-random,time L4-random\n")
 
 #running L4 algorithm
 for seed in range(first, last+1):
