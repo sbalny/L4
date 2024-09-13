@@ -1,9 +1,9 @@
 #!/bin/bash
 #Compare L4 to LLL
-ntest=10 #Number of tests per dimension
+ntest=1000 #Number of tests per dimension
 echo "Comparing L4 to LLL"
 Start=40 #First dimension
-End=50 #Last dimension
+End=180 #Last dimension
 echo "Starting... "
 for (( i=$Start; i<=$End; i+=10 ))
 do

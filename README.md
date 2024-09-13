@@ -52,7 +52,8 @@ $ sage L4algorithm.py 80 0 100
 will generate the L4-80.csv file which collects the aforementionned data for bases ``dst-80-0`` to ``dst-80-100``.
 
 
-The script ``runL4.sh`` runs this test for dimension 40 to 200 with a step of 10 using 1000 lattice per dimensions. The dimensions and the number of tests
+The script ``runL4.sh`` runs this test for dimension 40 to 180 with a step of 10 using 1000 lattice per dimensions and collect datas (mean, standard deviations)
+for all dimension into a file named ``L4-stats.csv``. The dimensions and the number of tests
 can be changed in the script.
 Usage:
 
@@ -70,15 +71,17 @@ $ sage L4-Rand.py [dim] [start] [end] [nbRand]
 ```
 
 where [dim] is the dimension of the lattice, [start] the first index [end] the last one and [nbRand] the number of randomizations.
+This will generate a csv file named ``L4rand-[nbRand]-[dim].csv which give the time complexity and approximation factor of both L4
+and L4Rand[nbRand].
 For instance:
 
 ```
 $ sage L4-Rand.py 80 0 100 10
 ```
 
-generate the file TODO
+generate the file ``L4rand-10-80.csv``
 
-To run test with the L4-Max2 and L4-Max4 randomization, run the following command:
+To run similar test with the L4-Max2 and L4-Max4 randomization, run the following command:
 
 ```
 $ sage L4-Max[k].py [dim] [start] [end]
@@ -91,9 +94,7 @@ For instance:
 $ sage L4-Max4.py 80 0 100
 ```
 
-generate the file TODO
-
-The script ``runRandom.sh`` runs these test for dimension 40 to 200 with a step of 10 using 1000 lattice per dimensions. The dimensions, number of tests,
+The script ``runRandom.sh`` runs these tests for dimension 40 to 180 with a step of 10 using 1000 lattice per dimensions. The dimensions, number of tests,
 and number of randomizations can be changed in the script.
 Usage:
 
@@ -103,30 +104,45 @@ $ ./runRandom.sh
 ```
 
 ### Comparison of BKZ and L4+BKZ
+To compare L4+BKZ and BKZ, run the following:
+
+```
+$ sage L4-BKZ.py [dim] [start] [end] [block]
+```
+
+where [dim] is the dimension of the lattice, [start] the first index [end] the last one and [block] the blocksize of BKZ.
+This gives the approximation factor of and runtime of BKZ alone and L4+BKZ as well as the runtime of the BKZ routine of L4+BKZ.
+For instance
+
+```
+$ sage L4-BKZ.py 80 0 100 24
+```
+
+Note that this test does not exactly reproduce the one in the paper. Indeed, the BKZ algorithm in FpyLLL uses a randomization routine.
+In our test we fixed the seed to ensure that the same randomization will be perfomed for BKZ alone and L4+BKZ. To have reproduce this
+you need to change open the ``nr_rand.inl`` file of fplll and replace the time(NULL) line 28 by a constant value (e.g. 6) and recompile
+fplll.
+
+The script ``runL4BKZ.sh`` runs these tests for dimension 40 to 150 with a step of 10 using 100 lattice per dimension. The default blocksize
+is 24. All these parameters can be changed in the script.
+Usage:
+
+```
+$ chmod +x runL4BKZ.sh
+$ ./runL4BKZ.sh
+```
+
+### Testing everything
+All the previous tests can be done at once running the ``runme.sh`` script.
+
+Usage:
+
+```
+$ chmod +x runme.sh
+$ ./runme.sh
+```
 
 
 
-## Deployment
 
-Additional notes on how to deploy this on a live or release system. Explaining the most important branches, what pipelines they trigger and how to update the database (if anything special).
-
-### Server
-
-* Live:
-* Release:
-* Development:
-
-### Branches
-
-* Master:
-* Feature:
-* Bugfix:
-* etc...
-
-## Additional Documentation and Acknowledgments
-
-* Project folder on server:
-* Confluence link:
-* Asana board:
-* etc...
 
