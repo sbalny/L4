@@ -5,7 +5,7 @@ echo "Test 1: Comparing L4 to LLL"
 Start=40 #First dimension
 End=50 #Last dimension
 echo "Starting... "
-for i in {$Start..$End..10}
+for (( i=$Start; i<=$End; i+=10 ))
 do
 	sage L4algorithm.py $i 0 $ntest
 done
@@ -22,12 +22,12 @@ do
 	sage L4-Rand.py $i 0 $ntest $rando
 done
 echo "Done. Starting the L4-Max2..."
-for i in {$Start..$End..10}
+for (( i=$Start; i<=$End; i+=10 ))
 do
 	sage L4-Max2.py $i 0 $ntest
 done
 echo "Done. Starting the L4-Max4..."
-for i in {$Start..$End..10}
+for (( i=$Start; i<=$End; i+=10 ))
 do
 	sage L4-Max4.py $i 0 $ntest
 done
@@ -43,7 +43,7 @@ EndB=50 #Last dimension
 Block=24
 echo "Test 3: Comparing L4+BKZ to BKZ - blocksize $Block"
 echo "Starting..."
-for i in {$StartB...$EndB...10}
+for (( i=$StartB; i<=$EndB; i+=10 ))
 do
 	sage L4-BKZ.py $i 0 $ntestB $Block
 done 

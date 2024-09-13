@@ -5,7 +5,7 @@ echo "Comparing L4 to LLL"
 Start=40 #First dimension
 End=50 #Last dimension
 echo "Starting... "
-for i in {$Start..$End..10}
+for (( i=$Start; i<=$End; i+=10 ))
 do
 	sage L4algorithm.py $i 0 $ntest
 done
