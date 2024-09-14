@@ -1,9 +1,9 @@
 #!/bin/bash
 # Test L4 
-ntest=100 #Number of tests per dimension
+ntest=99 #Number of tests per dimension
 echo "Test 1: Comparing L4 to LLL"
 Start=40 #First dimension
-End=150 #Last dimension
+End=180 #Last dimension
 Block=24
 echo "Test 3: Comparing L4+BKZ to BKZ - blocksize $Block"
 echo "Starting..."

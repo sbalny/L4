@@ -63,7 +63,7 @@ for seed in range(first, last+1):
     results["rand"][1] = time() - t
     results["rand"][0] = v_min.sq_length
     #output file
-    with open("L4-Max4-"+str(n)+".csv", 'a') as file:
+    with open("L4-Max2-"+str(n)+".csv", 'a') as file:
         file.write(str(n)+",")
         file.write(str(seed)+",")
         file.write(str(countLLL)+",")

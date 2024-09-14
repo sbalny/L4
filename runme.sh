@@ -1,6 +1,6 @@
 #!/bin/bash
 # Test L4 
-ntest=1000 #Number of tests per dimension
+ntest=99 #Number of tests per dimension
 echo "Test 1: Comparing L4 to LLL"
 Start=40 #First dimension
 End=180 #Last dimension
@@ -32,12 +32,13 @@ do
 	sage L4-Max4.py $i 0 $ntest
 done
 echo "Done. Making statistics..."
+sage L4-random-statistics.py $Start $End Rand$rando
 sage L4-random-statistics.py $Start $End Max2
 sage L4-random-statistics.py $Start $End Max4
 echo "Done. Writen in files"
 echo "----------------------------"
 #Test L4+BKZ
-ntestB=100 #Number of tests per dimension
+ntestB=99 #Number of tests per dimension
 StartB=40 #First dimension
 EndB=150 #Last dimension
 Block=24
