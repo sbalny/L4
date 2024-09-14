@@ -1,8 +1,8 @@
 #!/bin/bash
-ntest=2 #Number of tests per dimension
+ntest=99 #Number of tests per dimension
 echo "Test Randomization"
 Start=40 #First dimension
-End=60 #Last dimension
+End=180 #Last dimension
 rando=10 #Number of randomizations
 echo "Starting with fixed number of randomization (randomize $rando times)..."
 for (( i=$Start; i<=$End; i+=10 ))
