@@ -2,6 +2,8 @@
 L4 algorithm test library. Note that this code was mostly done for testing purpose and its runtime is
 not optimized.
 
+[![DOI](https://zenodo.org/badge/856012908.svg)](https://zenodo.org/doi/10.5281/zenodo.13842743)
+
 ### Prerequisites
 
 The things you need before installing the software.
